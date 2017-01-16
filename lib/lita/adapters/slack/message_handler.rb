@@ -158,6 +158,8 @@ module Lita
           return if from_self?(user)
 
           dispatch_message(user)
+
+          robot.trigger("slack_#{type}".to_sym, user)
         end
 
         def handle_reaction
@@ -196,7 +198,7 @@ module Lita
 
         # Types of messages Lita should dispatch to handlers.
         def supported_message_subtypes
-          %w(me_message)
+          %w(me_message message)
         end
 
         def supported_subtype?
