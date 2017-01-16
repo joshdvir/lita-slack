@@ -159,7 +159,7 @@ module Lita
 
           dispatch_message(user)
 
-          robot.trigger("slack_#{type}".to_sym, user)
+          robot.trigger("slack_#{type}".to_sym, data)
         end
 
         def handle_reaction
